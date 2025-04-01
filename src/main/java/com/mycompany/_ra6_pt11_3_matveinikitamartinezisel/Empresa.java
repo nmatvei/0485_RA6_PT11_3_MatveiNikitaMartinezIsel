@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 /**
- * Classe empresa que conté treballadors
+ * Classe Empresa
  *
  * @author Nikita i Isel
  */
