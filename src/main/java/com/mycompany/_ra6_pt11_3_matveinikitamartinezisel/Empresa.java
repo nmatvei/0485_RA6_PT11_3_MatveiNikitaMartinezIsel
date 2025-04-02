@@ -13,12 +13,14 @@ public class Empresa {
 
     /*Declaració d'atributs*/
     private Map<String, Treballador> treballadors;
+    private int sumaEdats;
     
     /**
      * Constructor de la classe
      */
     public Empresa() {
         this.treballadors = new HashMap<>();
+        this.sumaEdats = 0;
     }
     
     /**
@@ -32,6 +34,7 @@ public class Empresa {
         /*Comprovem que el DNI que introduïm no es troba en ús*/
         if (!treballadors.containsKey(dni)) {
             treballadors.put(dni, treballador);
+            sumaEdats += treballador.getEdat();
             System.out.println("Treballador afegit correctament.");
         } 
         /*Si ho està, no l'afegim*/
@@ -51,17 +54,7 @@ public class Empresa {
         /*Comprovem que la llista no estigui buida*/
         if (treballadors.isEmpty()){ return 0; }
         
-        /*Declaració de variables a utilitzar*/
-        ArrayList<Treballador> llistaTreballadors = new ArrayList<>(treballadors.values());
-        int sumaEdats = 0;
-
-        /*Estructura FOR-EACH per passar per tots els treballadors i conseguir 
-        la seva edat*/
-        for (Treballador t : llistaTreballadors) {
-            sumaEdats += t.getEdat();
-        }
-        
-        /*Declarem una variable per calcular i guardar l'edat mitjana*/
+        /*Si és plena, declarem una variable per calcular i guardar l'edat mitjana*/
         double mitjana = (double) sumaEdats / treballadors.size();
         
         /*Retornem l'edat mtijana*/
